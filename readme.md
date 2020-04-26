@@ -1,4 +1,7 @@
-# app brewery flutter course
+# notes 
+![](https://i.imgur.com/U2SR4Kd.png)
+- everything's a widget
+
 ## section 3
 - belajar cara handle asset berupa image
 - yaml file indentation 
