@@ -48,3 +48,7 @@ child: Column (
 ```
 - mainAxisAlignment and crossAxisAlignment is your bible
 - `SizedBox` itu kayak `<br>` di html
+- custom fonts, with assets on `pubspec.yaml`
+- materialpalette.com buat bikin layout warna yang baik dan benar sesuai guideline material
+    - ada colors, icon sama palette
+- kalo child nya gak punya property padding, flutter punya padding class sendiri 

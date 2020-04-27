@@ -28,17 +28,16 @@ class MyApp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children:<Widget>[
               Container(
-                padding: EdgeInsets.all(16),
                 height: 100,
                 width: 100,
                 color: Colors.green,
-                child: Text('container 4'),
+                child: Text('container 4', textAlign: TextAlign.right),
               ),
               Container(
                 height: 100,
                 width: 100,
                 color: Colors.yellow,
-                child: Text('container 5'),
+                child: Text('container 5', textAlign: TextAlign.left,),
               ),
             ]
             ),
