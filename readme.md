@@ -33,8 +33,8 @@ hot restart
 bisa diibaratkan kayak kernel restart vs kernel interrupt di ipython kernel, only adding the things that are changed.  
 
 ### container 
-![cheatsheet](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
-![layouting, mirip div](https://flutter.dev/docs/development/ui/widgets/layout)
+[cheatsheet](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
+[layouting, mirip div](https://flutter.dev/docs/development/ui/widgets/layout)
 - kalo gak ada child otomatis paling gede
 - gak perlu widget nya ketutupan dengan device screen nya (notch, edge screen, camera splotch) punya safe area di `SafeArea` di `body`
     - safe area guidelines bisa di liat di flutter inspector di devtools nya
@@ -52,3 +52,17 @@ child: Column (
 - materialpalette.com buat bikin layout warna yang baik dan benar sesuai guideline material
     - ada colors, icon sama palette
 - kalo child nya gak punya property padding, flutter punya padding class sendiri 
+
+# section 7
+![](https://i.imgur.com/6etXHsV.png)
+state stuff in fluttter
+## expanded class
+- membuat semua widget nya jadi responsive (menyesuaikan screen size)
+     - pake flex juga ini -_-
+- tiap button punya padding sendiri, jadi jangan digabung2 dengan child padding lainnya
+- `(){}` is basically a lambda function (voidCallback)
+## stateful 
+- di stateful adalah class yang bakal di cek apakah ada perubahan atau nggak (mutable)
+- kalau ada perubahan (marked dirty maka bakal di hot reload ), how does flutter check ya buat kotor apa nggak nya hm meninggal fix garbage collectionnya ini 
+    - oh iya kan pake ABT, jadi kalo ada batang yang berubah tinggal parent batangnya aja yang di reload 
+    - tapi gimana caranya dia constantly cek batang mana yang berubah ya kalo mutable begini hmm :/
