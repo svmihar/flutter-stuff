@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,9 +16,23 @@ void main() {
     ),
   );
 }
-var rightPressed = 0; 
-var leftPressed = 0; 
-class DicePage extends StatelessWidget {
+
+class DicePage extends StatefulWidget {
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  var rightPressed = 1;
+  var leftPressed = 1;
+  int totalKocokan=0;
+  void kocok(){
+    var rnd = Random();
+    rightPressed  = 1+ rnd.nextInt(6);
+    leftPressed  = 1+ rnd.nextInt(6);
+    totalKocokan++;
+    print('terkocok $totalKocokan kali');
+  }
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -26,21 +42,22 @@ class DicePage extends StatelessWidget {
               // must be a direct descent of a row / column
               // flex: 2,
               child: FlatButton(
-                onPressed: (){
-                  leftPressed++;
-                  print('left button pressed $leftPressed times');
-                },
-            child: Image.asset('images/dice1.png'),
+            onPressed: () {
+              setState(() {
+                kocok();
+              });
+            },
+            child: Image.asset('images/dice$leftPressed.png'),
           )),
           Expanded(
             child: FlatButton(
-              onPressed: (){
-                rightPressed++;
-                print('right button pressed $rightPressed times');
-
+              onPressed: () {
+                setState(() {
+                  kocok();
+                });
               },
               // flex: 1,
-              child: Image.asset('images/dice2.png'),
+              child: Image.asset('images/dice$rightPressed.png'),
             ),
           ),
         ],
