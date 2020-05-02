@@ -12,6 +12,7 @@ void main() {
         ),
         body: MagicPage(),
       ),
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
@@ -36,7 +37,7 @@ class _MagicPageState extends State<MagicPage> {
         children: <Widget>[
         Expanded(
           child: FlatButton(
-            padding: EdgeInsets.all(90),
+            padding: EdgeInsets.all(10),
               onPressed: () {
                 setState(() {
                   kasihNomor();
