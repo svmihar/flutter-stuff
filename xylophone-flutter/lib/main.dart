@@ -3,86 +3,47 @@ import 'package:audioplayers/audio_cache.dart';
 
 void main() => runApp(XylophoneApp());
 
+FlatButton pencet() {
+  return FlatButton(
+    onPressed: () {
+      print('jah');
+    },
+    child: Text('pencelah'),
+  );
+}
+
+Expanded keyNotes({Color color=Colors.yellow, int angkaWav}) {
+  final player = AudioCache();
+  return Expanded(
+    child: FlatButton(
+
+      color: color,
+      onPressed: () {
+        player.play('note$angkaWav.wav');
+      },
+      child: Text('$angkaWav'),
+    ),
+  );
+}
+
 class XylophoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: FlatButton(
-                    color: Colors.red,
-                    onPressed: () {
-                      final player = AudioCache();
-                      player.play(
-                          'note1.wav'); // secara default bakal nyari di assets/
-                    },
-                    child: Text('')),
-              ),
-              Container(
-                child: FlatButton(
-                    color: Colors.blue,
-                    onPressed: () {
-                      final player = AudioCache();
-                      player.play(
-                          'note2.wav'); // secara default bakal nyari di assets/
-                    },
-                    child: Text('')),
-              ),
-              Container(
-                child: FlatButton(
-                    color: Colors.yellow,
-                    onPressed: () {
-                      final player = AudioCache();
-                      player.play(
-                          'note3.wav'); // secara default bakal nyari di assets/
-                    },
-                    child: Text('')),
-              ),
-              Container(
-                child: FlatButton(
-                    color: Colors.orange,
-                    onPressed: () {
-                      final player = AudioCache();
-                      player.play(
-                          'note4.wav'); // secara default bakal nyari di assets/
-                    },
-                    child: Text('')),
-              ),
-              Container(
-                child: FlatButton(
-                    color: Colors.teal,
-                    onPressed: () {
-                      final player = AudioCache();
-                      player.play(
-                          'note5.wav'); // secara default bakal nyari di assets/
-                    },
-                    child: Text('')),
-              ),
-              Container(
-                child: FlatButton(
-                    color: Colors.pink,
-                    onPressed: () {
-                      final player = AudioCache();
-                      player.play(
-                          'note6.wav'); // secara default bakal nyari di assets/
-                    },
-                    child: Text('')),
-              ),
-              Container(
-                child: FlatButton(
-                    color: Colors.indigo,
-                    onPressed: () {
-                      final player = AudioCache();
-                      player.play(
-                          'note7.wav'); // secara default bakal nyari di assets/
-                    },
-                    child: Text('')),
-              ),
+              pencet(),
+              keyNotes(angkaWav: 1),
+              keyNotes(color: Colors.red, angkaWav: 2),
+              keyNotes(color: Colors.orange, angkaWav: 3),
+              keyNotes(color: Colors.teal, angkaWav: 4),
+              keyNotes(color: Colors.blue, angkaWav: 5),
+              keyNotes(color: Colors.cyan, angkaWav: 6),
+              keyNotes(color: Colors.indigo, angkaWav: 7),
             ],
           ),
         ),
