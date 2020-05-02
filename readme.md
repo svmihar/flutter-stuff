@@ -66,3 +66,16 @@ state stuff in fluttter
 - kalau ada perubahan (marked dirty maka bakal di hot reload ), how does flutter check ya buat kotor apa nggak nya hm meninggal fix garbage collectionnya ini 
     - oh iya kan pake ABT, jadi kalo ada batang yang berubah tinggal parent batangnya aja yang di reload 
     - tapi gimana caranya dia constantly cek batang mana yang berubah ya kalo mutable begini hmm :/
+
+
+# arrow syntax 
+only works on a single line expression
+```dart 
+void tambah({int a1, int a2}){
+    return n1+n2; 
+}
+```
+ekuivalen dengan 
+``dart
+void tambah({int a1, int a2})=>a1+a2;
+```
