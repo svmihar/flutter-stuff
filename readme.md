@@ -79,3 +79,6 @@ ekuivalen dengan
 ``dart
 void tambah({int a1, int a2})=>a1+a2;
 ```
+
+# section 10 
+jadi buat bikin conditional itu harus di dalem kelas apa di dalem state nya sih? 
