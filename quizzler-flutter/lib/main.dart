@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'question.dart';
+import 'quiz_brain.dart';
 
 void main() => runApp(Quizzler());
 
@@ -26,20 +26,14 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<Question> questions = [
-    Question(q:'angka genap selalu dapat dibagi dua',a:true), 
-    Question(q:'semua bilangan adalah bilangan bulat',a:false),
-    Question(q:'epstein kills himself', a:false)
-  ];
-  List<Icon> ScoreKeeper = [
+  List<Icon> scoreKeeper = [
     Icon(Icons.check, color: Colors.green),
     Icon(
       Icons.close,
       color: Colors.red,
     )
   ];
-  List<bool> questionAnswer = [true, false, false];
-  int question_tracker = 0;
+  QuizBrain kumpulanQuestions = QuizBrain(); 
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +47,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[question_tracker].question,
+                kumpulanQuestions.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -78,14 +72,13 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
-                bool answer = questionAnswer[question_tracker].answer;
+                bool answer = kumpulanQuestions.getAnswer();
                 setState(() {
                   if (answer == true) {
-                    ScoreKeeper.add(Icon(Icons.check, color: Colors.green));
+                    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
                   } else {
-                    ScoreKeeper.add(Icon(Icons.close, color: Colors.red));
+                    scoreKeeper.add(Icon(Icons.close, color: Colors.red));
                   }
-                  question_tracker++;
                 });
               },
             ),
@@ -105,21 +98,20 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user pic false.
-                bool answer = questionAnswer[question_tracker].answer;
-                setState() {
+                bool answer = kumpulanQuestions.getAnswer();
+                setState(() {
                   if (answer == false) {
-                    ScoreKeeper.add(Icon(Icons.check, color: Colors.green));
+                    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
                   } else {
-                    ScoreKeeper.add(Icon(Icons.close, color: Colors.red));
+                    scoreKeeper.add(Icon(Icons.close, color: Colors.red));
                   }
-                  question_tracker++;
-                }
+                });
               },
             ),
           ),
         ),
         Row(
-          children: ScoreKeeper,
+          children: scoreKeeper,
         )
       ],
     );
