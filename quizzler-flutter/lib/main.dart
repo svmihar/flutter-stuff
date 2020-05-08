@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'question.dart';
 
 void main() => runApp(Quizzler());
 
@@ -25,10 +26,10 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<String> questions = [
-    'angka genap selalu dapat dibagi dua',
-    'semua bilangan adalah bilangan bulat',
-    'epstein kills himself'
+  List<Question> questions = [
+    Question(q:'angka genap selalu dapat dibagi dua',a:true), 
+    Question(q:'semua bilangan adalah bilangan bulat',a:false),
+    Question(q:'epstein kills himself', a:false)
   ];
   List<Icon> ScoreKeeper = [
     Icon(Icons.check, color: Colors.green),
@@ -39,8 +40,6 @@ class _QuizPageState extends State<QuizPage> {
   ];
   List<bool> questionAnswer = [true, false, false];
   int question_tracker = 0;
-  if (question_tracker>3) {
-    question_tracke=0;};
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +53,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[question_tracker],
+                questions[question_tracker].question,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -79,7 +78,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
-                bool answer = questionAnswer[question_tracker];
+                bool answer = questionAnswer[question_tracker].answer;
                 setState(() {
                   if (answer == true) {
                     ScoreKeeper.add(Icon(Icons.check, color: Colors.green));
@@ -106,7 +105,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user pic false.
-                bool answer = questionAnswer[question_tracker];
+                bool answer = questionAnswer[question_tracker].answer;
                 setState() {
                   if (answer == false) {
                     ScoreKeeper.add(Icon(Icons.check, color: Colors.green));
