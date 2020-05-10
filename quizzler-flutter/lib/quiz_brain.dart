@@ -18,5 +18,11 @@ class QuizBrain{
   bool getAnswer(){
     return _kumpulanQuestions[_questionNumber].answer;
   }
+  int getQuestionLength(){
+    return _kumpulanQuestions.length;
+  }
+  void setQuestionNumber(int designatedNumber){
+    _questionNumber = designatedNumber;
+  }
 
 }
